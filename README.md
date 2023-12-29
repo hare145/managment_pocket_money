@@ -15,7 +15,8 @@
 <!--どのような時に使うのかの状況を記載すること-->
 ​
 ## 設計書
-<!--テーマを設定・提出する時点では不要です-->
+- テーブル図</br>
+https://docs.google.com/spreadsheets/d/17Z3uv3B2yXLoxKUm7vzHhfdi1EHumrc57ScuCKfciw8/edit?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -23,3 +24,6 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用Gem
+- device
