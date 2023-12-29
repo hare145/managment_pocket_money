@@ -1,24 +1,25 @@
-# README
+お小遣い管理サイト
+​
+## サイト概要
+### サイトテーマ
+- 月毎のお小遣いを管理するサイト。
+​
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### テーマを選んだ理由
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+​
+### ターゲットユーザ
+<!--誰に使ってもらうかを具体的に記載する-->
+​
+### 主な利用シーン
+<!--どのような時に使うのかの状況を記載すること-->
+​
+## 設計書
+<!--テーマを設定・提出する時点では不要です-->
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
