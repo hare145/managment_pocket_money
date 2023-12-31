@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions',
@@ -27,6 +28,10 @@ Rails.application.routes.draw do
           resources :userservices, only: [:show, :create, :update, :destroy]
         end
       end
+    end
+    
+    controller :users_ocrs do
+      get 'users_ocrs/new' => "users_ocrs#new"
     end
     
   end
