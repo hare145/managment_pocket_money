@@ -10,7 +10,126 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class = "d-flex flex-column vh-100 bg-light">>
+  <header class="border shadow">
+      <nav class = "navbar navbar-expand-md bg-body-tertiary">
+        <div class="container-fluid">
+          <% if admin_signed_in? %>
+            <% if request.fullpath.include? "/admin" %>
+              <p class ="navbar-brand pt-3"><%= %></p>
+            <% else %>
+              <a class ="navbar-brand p-3" href='<%= root_path %>'><%=  %></a>
+            <% end %>
+          <% elsif user_signed_in? %>
+            <a class ="navbar-brand p-3" href='<%= root_path %>'><%= %></a>
+          <% else %>
+            <a class ="navbar-brand p-3" href='<%= root_path %>'><%=  %></a>
+          <% end %>  
+          <button class ="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+              <% if admin_signed_in? %>
+                <% if request.fullpath.include? "/admin" %>
+                  <li class="nav-item mr-auto" >  
+                    <%= link_to admin_root_path, class: 'nav-link active text-dark', "aria-current": :"page" do %>
+                      <i class="fa-solid fa-house"></i>
+                      <span>ユーザー一覧</span>
+                    <% end %>
+                  </li>
+                  <li class="nav-item mr-auto" > 
+                    <%= link_to admin_tyovo_path, class: 'nav-link active text-dark', "aria-current": :"page" do %>
+                    <i class="fa-brands fa-uncharted"></i>
+                    <span>帳簿セットアップ</span>
+                    <% end %>
+                  </li>
+                  <li class="nav-item mr-auto" > 
+                    <%= link_to admin_contacts_path, class: 'nav-link active text-dark', "aria-current": :"page" do %>
+                      <i class="fa-regular fa-envelope" style="color: #000000;"></i>
+                      <span>お問い合わせ一覧</span>
+                    <% end %>
+                  </li>
+                  <li class="nav-item mr-auto" > 
+                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link active text-dark', "aria-current": :"page" %>
+                  </li>
+                <% else %>
+                  <li class="nav-item mr-auto" > 
+                    <%= render partial: 'layouts/shared/' %>
+                  </li>
+                  <li class="nav-item mr-auto" > 
+                    <%= render partial: 'layouts/shared/' %>
+                  </li>
+                  <li class="nav-item mr-auto" > 
+                    <%= link_to "新規登録", new_user_registration_path, class: 'nav-link active text-dark', "aria-current": :"page" %>
+                  </li>
+                  <li class="nav-item mr-auto" > 
+                    <%= link_to "ログイン", new_user_session_path, class: 'nav-link active text-dark', "aria-current": :"page" %>
+                  </li>
+                  <li class="nav-item ms-5 me-2">
+                    <%= render partial: 'layouts/shared/' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= render partial: 'layouts/shared/' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= render partial: 'layouts/shared/' %>
+                  </li>
+                <% end %>
+              <% elsif user_signed_in? %>
+                <li class="nav-item mr-auto" > 
+                  <%= render partial: 'layouts/shared/' %>
+                </li>
+                <li class="nav-item mr-auto" > 
+                  <%= render partial: 'layouts/shared/' %>
+                </li>
+                <li class="nav-item mr-auto" > 
+                  <%= link_to users_mypage_path, class: 'nav-link active text-dark', "aria-current": :"page" do %>
+                    <i class="fa-solid fa-person" style="color: #000000;"></i>
+                    <span>マイページ</span>
+                  <% end %>
+                </li>
+                <li class="nav-item mr-auto" > 
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link active text-dark', "aria-current": :"page" %>
+                </li>
+                <li class="nav-item ms-5 me-2" > 
+                  <%= render partial: 'layouts/shared/search_icon' %>
+                </li>
+                <li class="nav-item mr-auto">
+                  <%= render partial: 'layouts/shared/' %>
+                </li>
+                <li class="nav-item mr-auto">
+                  <%= render partial: 'layouts/shared/' %>
+                </li>
+        　　    <% else %>
+                <li class="nav-item mr-auto" > 
+                  <%= render partial: 'layouts/shared/' %>
+                </li>
+                <li class="nav-item mr-auto" > 
+                  <%= render partial: 'layouts/shared/' %>
+                </li>
+                <li class="nav-item mr-auto" > 
+                  <%= link_to "新規登録", new_user_registration_path, class: 'nav-link active text-dark', "aria-current": :"page" %>
+                </li>
+                <li class="nav-item mr-auto" > 
+                  <%= link_to "ログイン", new_user_session_path, class: 'nav-link active text-dark', "aria-current": :"page" %>
+                </li>
+                <li class="nav-item ms-5 me-2" > 
+                  <%= render partial: 'layouts/shared/search_icon' %>
+                </li>
+                <li class="nav-item mr-auto">
+                    <%= render partial: 'layouts/shared/' %>
+                </li>
+                <li class="nav-item mr-auto">
+                  <%= render partial: 'layouts/shared/' %>
+                </li>
+            　 <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
