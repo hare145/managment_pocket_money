@@ -60,7 +60,7 @@ gem 'devise'
 
 gem "chartkick"
 
-
+gem 'font-awesome-sass', '~> 5.15'
 
 gem 'image_processing', '~> 1.2'
 
