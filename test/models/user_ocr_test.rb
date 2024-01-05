@@ -1,6 +1,6 @@
 require "test_helper"
 
-class UsersOcrTest < ActiveSupport::TestCase
+class UserOcrTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

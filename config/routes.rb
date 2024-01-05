@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'user_ocrs/new'
+  end
   devise_for :users, controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions',
@@ -30,8 +33,9 @@ Rails.application.routes.draw do
       end
     end
     
-    controller :users_ocrs do
-      get 'users_ocrs/new' => "users_ocrs#new"
+    controller :user_ocrs do
+      get 'user_ocrs/new' => "user_ocrs#new"
+      resources :user_ocrs, only: [:create]
     end
     
   end

@@ -1,0 +1,8 @@
+<h1>Public::UserOcrs#new</h1>
+<p>Find me in app/views/public/user_ocrs/new.html.erb</p>
+
+
+<%= form_with(model: @user_ocr, url: user_ocrs_path, local: true, multipart: true) do |f| %>
+  <%= f.file_field :image %>
+  <%= fo.submit 'OCRを実行' %>
+<% end %>
