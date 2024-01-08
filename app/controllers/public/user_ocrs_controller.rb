@@ -15,6 +15,9 @@ class Public::UserOcrsController < ApplicationController
     end
   end
   
+  def show
+    @user_ocr = UserOcr.find(:params[@user_ocr])
+  end
   
   
   
