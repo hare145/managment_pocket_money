@@ -17,6 +17,11 @@ class Public::UserOcrsController < ApplicationController
   
   def show
     @user_ocr = UserOcr.find(:params[@user_ocr])
+    
+    @use_ocr_text = @user_ocr.text
+    @use_ocr_text = shaped_only_numbers(@use_ocr_text)
+    @use_ocr_text = strip_zenkaku(@user_ocr_text)
+    
   end
   
   
