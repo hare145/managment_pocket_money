@@ -1,0 +1,16 @@
+<%= form_with(url: process_ocr_text_path, method: :post) do |form| %>
+  <label for="ocr_text">OCRテキスト:</label>
+  <%= text_area_tag 'ocr_text', '', rows: 5 %>
+
+  <%= submit_tag 'OCRテキストを処理する' %>
+<% end %>
+
+<% @paragraphs.each do |paragraph| %>
+  <div>
+    <p><strong>テキスト:</strong> <%= paragraph.text %></p>
+    <label for="category">カテゴリ:</label>
+    <%= select_tag "categories[#{paragraph.id}]", options_for_select(['雑費', '治療費', '娯楽費'], '雑費') %>
+  </div>
+<% end %>
+
+<%= submit_tag '選択したカテゴリを保存する' %>
