@@ -13,7 +13,7 @@
           aria-selected="true"
         >
           <li>
-            <% yyyy_mm = Time.now - %>
+            <% yyyy_mm = Time.now %>
             <%= yyyy_mm.strftime("%Y/%m") %>
           </li>
         </button>
@@ -27,7 +27,7 @@
           aria-controls="nav-profile"
           aria-selected="false"
         >
-          <% yyyy_mm = Time.now - Time.ago(1.month)  %>
+          <% yyyy_mm = Time.now - 1.month  %>
           <%= yyyy_mm.strftime("%Y/%m") %>
         </button>
         <button
@@ -40,7 +40,7 @@
           aria-controls="nav-contact"
           aria-selected="false"
         >
-          <% yyyy_mm = Time.now - Time.ago(2.month) %>
+          <% yyyy_mm = Time.now - 2.month %>
           <%= yyyy_mm.strftime("%Y/%m") %>
         </button>
       </div>
