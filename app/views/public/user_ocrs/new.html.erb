@@ -4,5 +4,5 @@
 
 <%= form_with(model: @user_ocr, url: user_ocrs_path, local: true, multipart: true) do |f| %>
   <%= f.file_field :image %>
-  <%= fo.submit 'OCRを実行' %>
+  <%= f.submit 'OCRを実行' %>
 <% end %>

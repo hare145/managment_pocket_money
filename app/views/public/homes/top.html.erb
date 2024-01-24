@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -63,7 +63,10 @@
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
       >
-        ...
+        <% @month = params[:month] ? Date.parse(params[:month]) : Date.today %>
+        <%= column_chart @user_expenditure.where(created_at: @month.in_time_zone.all_month).pluck(:rent, :utilities, :food, :transportation,
+                                                                                                  :phone_bills, :internet_fees, :medical, :education,
+                                                                                                  :entertainment_hobbies, :clothing, :debt_repayment, :miscellaneous,) %>
       </div>
       <div
         class="tab-pane fade"

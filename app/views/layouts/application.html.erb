@@ -14,7 +14,7 @@
     
   </head>
 
-  <body class = "d-flex flex-column vh-100 bg-light">>
+  <body class = "d-flex flex-column vh-100 bg-light">
   <header class="border shadow">
       <nav class = "navbar navbar-expand-md bg-body-tertiary">
         <div class="container-fluid">
@@ -111,7 +111,7 @@
                   <%= render partial: 'layouts/shared/user_header' %>
                 </li>
                 <li class="nav-item mr-auto" > 
-                  <%= render partial: 'layouts/shared/user_header' %>
+                  <%= link_to "OCr", user_ocrs_new_path, class: 'nav-link active text-dark', "aria-current": :"page" %>
                 </li>
                 <li class="nav-item mr-auto" > 
                   <%= link_to "新規登録", new_user_registration_path, class: 'nav-link active text-dark', "aria-current": :"page" %>
