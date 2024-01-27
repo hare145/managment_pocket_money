@@ -3,7 +3,7 @@ class UserOcr < ApplicationRecord
   belongs_to :user
   
   
-  has_one_attached :ocr_image
+  has_one_attached :image
   
   
   def strip_zenkaku(args:)
