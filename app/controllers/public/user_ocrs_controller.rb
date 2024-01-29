@@ -36,11 +36,14 @@ class Public::UserOcrsController < ApplicationController
     return unless image.attached?
 
     image_path = Rails.root.join('tmp', 'uploads', image.filename.to_s)
-    File.open(image_path, 'wb') { |file| file.write(image.download) }
+    
+    File.open(image_path, 'wb') do |file|
+      file << image.blob.download
+    end
 
     text = RTesseract.new(image_path).to_s
 
-    File.delete(image_path) # 一時ファイルを削除
+    File.delete(image_path)
 
     text
   end
