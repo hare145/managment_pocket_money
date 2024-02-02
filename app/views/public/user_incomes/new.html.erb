@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <% yyyy_mm = Time.now %>
+    <%= yyyy_mm.strftime("%Y/%m") %>
+    <p>の収入</p>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+
+<%= form_with(model: @user_income, url: user_ocrs_path, local: true, multipart: true) do |f| %>
+  <%= f.text :image %>
+  <%= f.submit 'OCRを実行' %>
+<% end %>
+  </div>
+</div>
